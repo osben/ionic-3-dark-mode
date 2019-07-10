@@ -9,7 +9,10 @@ export class HomePage {
   public isDart = false;
 
   constructor(public navCtrl: NavController) {
-
+    const w = window.matchMedia('(prefers-color-scheme: dark)');
+    w.addListener((e) => {
+      this.isDart = !!e.matches
+    });
   }
 
   toggleDart() {
